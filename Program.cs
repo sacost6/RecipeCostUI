@@ -10,6 +10,12 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 // This is your "Phone" to the API
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5210") });
 
+// We also need to tell the global JSON options about the converter
+builder.Services.Configure<System.Text.Json.JsonSerializerOptions>(options =>
+{
+    options.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+});
+
 // This registers your service so pages can use it
 builder.Services.AddScoped<IngredientService>();
 
