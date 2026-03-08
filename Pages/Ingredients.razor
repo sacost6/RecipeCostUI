@@ -15,9 +15,8 @@
                 <div class="col">
                     <input @bind="formModel.CostPerBaseUnit" type="number" step="0.0001" class="form-control" placeholder="Cost ($)" />
                 </div> 
-                <div class="col">
-                    <label>Unit</label>
-                    <InputSelect @bind-Value="formModel.BaseUnit" class="form-control">
+                <div class="col"> 
+                    <InputSelect @bind-Value="formModel.BaseUnit" class="form-control" title="Unit">
                         @foreach (var unit in Enum.GetValues<UnitType>())
                         {
                             <option value="@unit">@unit</option>
