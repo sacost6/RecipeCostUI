@@ -97,8 +97,8 @@
         {
             <tr>
                 <td>@recipe.Name</td>
-                <td>@recipe.TotalCost.ToString("C")</td>
-                <td>@recipe.CostPerServing.ToString("C")</td>
+                <td>@($"${recipe.TotalCost:0.####}")</td>
+                <td>@($"${recipe.CostPerServing:0.#######}")</td>
                 <td>
                     <button class="btn btn-sm btn-info" @onclick="() => StartEdit(recipe)">Edit</button>
                 </td>
